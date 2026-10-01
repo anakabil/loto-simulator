@@ -178,6 +178,53 @@ table.dl{width:100%;border-collapse:collapse;font-size:14px}
 .chip.prog{background:rgba(245,196,0,.14);border-color:rgba(245,196,0,.4);color:#ffe27a}
 body.vr #hud,body.vr #event,body.vr #docs,body.vr #dialog{display:none !important}
 body.vr #c{cursor:none}
+/* ---------- dasbor ---------- */
+#menu.dash{align-items:flex-start;padding:0;background:radial-gradient(1200px 640px at 8% -10%,rgba(245,196,0,.20),transparent 60%),radial-gradient(900px 520px at 96% -4%,rgba(34,211,238,.18),transparent 60%),radial-gradient(900px 600px at 50% 112%,rgba(168,85,247,.16),transparent 60%),linear-gradient(180deg,#0b1220,#0e1626 55%,#0a0f1a)}
+.dash-wrap{width:100%;padding:28px 3vw 44px}
+.dash-head{display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap}
+.user-card{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:12px 16px;backdrop-filter:blur(8px)}
+.user-card .av{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#ffe27a,#f5c400 55%,#ff8a00);display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:700;color:#1a1400;font-size:20px;box-shadow:inset 0 -3px 6px rgba(0,0,0,.25),0 6px 14px rgba(245,196,0,.25)}
+.user-card .nm{font-weight:600;font-size:16px}.user-card .co{font-size:13px;color:var(--muted)}
+.user-card .stats{display:flex;gap:18px;margin-left:8px;padding-left:18px;border-left:1px solid var(--line)}
+.stats b{display:block;font-family:var(--font-h);font-size:24px;line-height:1;font-weight:700}.stats span{font-size:11px;color:var(--muted)}
+.user-card .lnk{background:none;border:none;color:#b3d3ff;cursor:pointer;font:inherit;font-size:13px;padding:0;margin-left:6px;text-decoration:underline}
+.dash-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:26px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip-f{padding:9px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:#dfe7ef;cursor:pointer;font-weight:600;font-size:14px;font-family:inherit;transition:.15s}
+.chip-f:hover{background:rgba(255,255,255,.1)}.chip-f.on{background:linear-gradient(135deg,#ffe27a,#f5c400 60%,#ffb000);color:#1a1400;border-color:transparent}
+.dash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px;margin-top:18px}
+.mcard{position:relative;overflow:hidden;border-radius:18px;padding:18px 18px 16px;background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.12);box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .18s,box-shadow .18s,border-color .18s;display:flex;flex-direction:column;gap:8px}
+.mcard:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,.5);border-color:rgba(255,255,255,.24)}
+.mcard:before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:none}
+.mcard:after{content:"";position:absolute;inset:0;background:radial-gradient(380px 190px at 22% 0%,var(--acc-glow),transparent 70%);pointer-events:none}
+.mcard.s-migas{--acc:#f5c400;--acc2:#ff8a00;--acc-glow:rgba(245,196,0,.24)}
+.mcard.s-petro{--acc:#22d3ee;--acc2:#0ea5e9;--acc-glow:rgba(34,211,238,.24)}
+.mcard.s-kertas{--acc:#a3e635;--acc2:#22c55e;--acc-glow:rgba(163,230,53,.22)}
+.mcard.s-garmen{--acc:#f472b6;--acc2:#a855f7;--acc-glow:rgba(244,114,182,.24)}
+.mc-top{display:flex;align-items:center;gap:14px;position:relative;z-index:1}
+.mc-icon{width:104px;height:90px;flex:none;filter:drop-shadow(0 12px 16px rgba(0,0,0,.5))}.mc-icon svg{width:100%;height:100%;overflow:visible}
+.mc-code span{font-family:var(--font-h);font-weight:700;font-size:15px;letter-spacing:.08em;color:var(--acc)}
+.mc-code em{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:3px}
+.mc-code .lvl{display:inline-block;margin-top:6px;font-size:11px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.08);color:#dfe7ef}
+.mcard h3{margin:4px 0 0;font-family:var(--font-h);font-size:26px;line-height:1.05;font-weight:600;position:relative;z-index:1}
+.mcard p{margin:0;font-size:13.5px;color:#c9d3dd;line-height:1.45;position:relative;z-index:1;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.mc-meta{display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
+.mc-meta span{font-size:12px;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:#dfe7ef}
+.mc-best{font-size:13px;color:#9cf3c4;position:relative;z-index:1}.mc-best.none{color:var(--muted)}
+.mc-go{margin-top:auto;position:relative;z-index:1;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#0d0d0d;border:none;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,.3)}
+.mc-go:hover{filter:brightness(1.08);background:linear-gradient(135deg,var(--acc),var(--acc2))}
+.dash-foot{margin-top:26px;font-size:12.5px;color:var(--muted);line-height:1.5;max-width:110ch}
+/* ---------- sambutan ---------- */
+#welcome{background:radial-gradient(900px 540px at 20% 0%,rgba(245,196,0,.22),transparent 60%),radial-gradient(800px 500px at 90% 100%,rgba(34,211,238,.18),transparent 60%),linear-gradient(180deg,#0b1220,#0a0f1a)}
+.wcard{width:min(560px,94vw);background:linear-gradient(180deg,rgba(255,255,255,.085),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:32px 34px;box-shadow:0 26px 70px rgba(0,0,0,.55);backdrop-filter:blur(10px)}
+.wcard .brand h1{font-size:56px}.wcard .lead{color:#d7dee6;font-size:15px;line-height:1.55;margin:16px 0 4px}
+.wcard label{display:block;margin-top:16px;font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.02em}
+.wcard input{display:block;width:100%;margin-top:7px;padding:13px 15px;border-radius:11px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.32);color:#fff;font:inherit;font-size:16px}
+.wcard input:focus{outline:2px solid var(--yellow);border-color:transparent}
+.wcard .err{color:#ffa39e;font-size:13px;margin-top:8px;min-height:18px}
+.wcard .btn.primary{width:100%;margin-top:16px;padding:14px;font-size:16px;background:linear-gradient(135deg,#ffe27a,#f5c400 60%,#ffb000);border:none}
+.wcard .small{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.5}
+.peserta{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:10px;padding:6px 12px;font-size:14px;margin:8px 0 2px}
 </style>
 </head>
 <body>
@@ -221,27 +268,53 @@ body.vr #c{cursor:none}
 
 <div id="event" class="hidden"></div>
 
-<div id="menu" class="screen">
-  <div class="wrap">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="g-steel" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#4b5563"/><stop offset=".3" stop-color="#e5e7eb"/><stop offset=".55" stop-color="#9ca3af"/><stop offset="1" stop-color="#374151"/></linearGradient>
+<linearGradient id="g-steelV" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e5e7eb"/><stop offset=".45" stop-color="#9ca3af"/><stop offset="1" stop-color="#374151"/></linearGradient>
+<linearGradient id="g-top" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f9fafb"/><stop offset="1" stop-color="#9ca3af"/></linearGradient>
+<linearGradient id="g-gold" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#ffe9a0"/><stop offset=".5" stop-color="#f5c400"/><stop offset="1" stop-color="#a66c00"/></linearGradient>
+<linearGradient id="g-navy" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#475569"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
+<linearGradient id="g-red" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fca5a5"/><stop offset=".5" stop-color="#ef4444"/><stop offset="1" stop-color="#7f1d1d"/></linearGradient>
+<linearGradient id="g-orange" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fed7aa"/><stop offset=".5" stop-color="#f97316"/><stop offset="1" stop-color="#9a3412"/></linearGradient>
+<linearGradient id="g-creamV" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fffdf5"/><stop offset=".6" stop-color="#eadfc2"/><stop offset="1" stop-color="#b9a47b"/></linearGradient>
+<linearGradient id="g-teal" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#99f6e4"/><stop offset=".5" stop-color="#14b8a6"/><stop offset="1" stop-color="#115e59"/></linearGradient>
+<linearGradient id="g-flame" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fde047"/><stop offset=".55" stop-color="#f97316"/><stop offset="1" stop-color="#b91c1c"/></linearGradient>
+<radialGradient id="g-green"><stop offset="0" stop-color="#d9f99d"/><stop offset="1" stop-color="#15803d"/></radialGradient>
+<radialGradient id="g-glow"><stop offset="0" stop-color="#fff3b0"/><stop offset=".5" stop-color="#f97316"/><stop offset="1" stop-color="#f97316" stop-opacity="0"/></radialGradient>
+<pattern id="p-stripe" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="12" fill="#f5c400"/><rect x="6" width="6" height="12" fill="#1a1a1a"/></pattern>
+<filter id="f-sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="3.5" flood-color="#000" flood-opacity=".5"/></filter>
+</defs></svg>
+
+<div id="welcome" class="screen hidden">
+  <div class="wcard">
     <div class="brand">
-      <svg width="96" height="96" viewBox="0 0 96 96" aria-hidden="true">
-        <rect x="6" y="6" width="84" height="84" rx="14" fill="#f5c400"/>
-        <path d="M32 46V34a16 16 0 0 1 32 0v12" fill="none" stroke="#141414" stroke-width="7" stroke-linecap="round"/>
-        <rect x="23" y="45" width="50" height="36" rx="7" fill="#141414"/>
-        <circle cx="48" cy="59" r="5.5" fill="#f5c400"/><rect x="45.3" y="61" width="5.4" height="11" rx="2.5" fill="#f5c400"/>
-      </svg>
-      <div>
-        <h1>LOTO<span>Simulator</span></h1>
-        <div class="tagline">Simulasi sudut pandang orang pertama untuk melatih pengendalian energi berbahaya (lockout tagout) di fasilitas migas dan manufaktur: isolasi, penguncian, pelepasan energi tersimpan, dan verifikasi energi nol.</div>
+      <svg width="64" height="64" viewBox="0 0 96 96" aria-hidden="true"><rect x="6" y="6" width="84" height="84" rx="14" fill="#f5c400"/><path d="M32 46V34a16 16 0 0 1 32 0v12" fill="none" stroke="#141414" stroke-width="7" stroke-linecap="round"/><rect x="23" y="45" width="50" height="36" rx="7" fill="#141414"/><circle cx="48" cy="59" r="5.5" fill="#f5c400"/><rect x="45.3" y="61" width="5.4" height="11" rx="2.5" fill="#f5c400"/></svg>
+      <div><h1>LOTO<span>Simulator</span></h1></div>
+    </div>
+    <p class="lead">Selamat datang. Isi identitas peserta terlebih dahulu; nama dan perusahaan akan tercantum pada hasil evaluasi setiap misi.</p>
+    <label>Nama lengkap<input id="w-name" type="text" maxlength="60" placeholder="misalnya Reza Huzain" autocomplete="name"></label>
+    <label>Perusahaan atau instansi<input id="w-co" type="text" maxlength="80" placeholder="misalnya PT Nusa Rendra Jayatama" autocomplete="organization"></label>
+    <div class="err" id="w-err"></div>
+    <button class="btn primary" id="w-go">Masuk dan pilih kasus</button>
+    <div class="small">Data disimpan di browser ini saja dan dapat diubah kapan pun dari dasbor.</div>
+  </div>
+</div>
+
+<div id="menu" class="screen dash">
+  <div class="dash-wrap">
+    <header class="dash-head">
+      <div class="brand">
+        <svg width="84" height="84" viewBox="0 0 96 96" aria-hidden="true"><rect x="6" y="6" width="84" height="84" rx="14" fill="#f5c400"/><path d="M32 46V34a16 16 0 0 1 32 0v12" fill="none" stroke="#141414" stroke-width="7" stroke-linecap="round"/><rect x="23" y="45" width="50" height="36" rx="7" fill="#141414"/><circle cx="48" cy="59" r="5.5" fill="#f5c400"/><rect x="45.3" y="61" width="5.4" height="11" rx="2.5" fill="#f5c400"/></svg>
+        <div><h1>LOTO<span>Simulator</span></h1><div class="tagline">Simulasi orang pertama pengendalian energi berbahaya (lockout tagout) di fasilitas migas dan manufaktur.</div></div>
       </div>
+      <div class="user-card" id="user-card"></div>
+    </header>
+    <div class="dash-bar">
+      <div class="filters" id="filters"><button class="chip-f on" data-f="all">Semua misi</button><button class="chip-f" data-f="migas">Migas</button><button class="chip-f" data-f="manufaktur">Manufaktur</button></div>
+      <div class="row" style="margin:0"><button class="btn" id="b-help">Cara bermain</button><button class="btn" id="b-refs">Dasar rujukan</button><button class="btn" id="b-reset">Hapus rekor</button></div>
     </div>
-    <div id="mcards" class="grid"></div>
-    <div class="row">
-      <button class="btn" id="b-help">Cara bermain</button>
-      <button class="btn" id="b-refs">Dasar rujukan</button>
-      <button class="btn" id="b-reset">Hapus rekor</button>
-    </div>
-    <div class="foot">LOTO Simulator v1.0. Urutan misi mengikuti tahapan pengendalian energi OSHA 29 CFR 1910.147 dan ANSI/ASSP Z244.1, dengan konteks regulasi nasional. Simulasi ini alat bantu pelatihan, bukan pengganti prosedur LOTO dan sistem izin kerja spesifik tiap fasilitas. Dimainkan di komputer dengan mouse dan keyboard, atau di ponsel dengan headset VR lewat tombol Mulai di VR.</div>
+    <div id="mcards" class="dash-grid"></div>
+    <div class="dash-foot">LOTO Simulator v2.1. Urutan misi mengikuti tahapan pengendalian energi OSHA 29 CFR 1910.147 dan ANSI/ASSP Z244.1, dengan konteks regulasi nasional. Simulasi ini alat bantu pelatihan, bukan pengganti prosedur LOTO dan sistem izin kerja spesifik tiap fasilitas. Dimainkan di komputer dengan mouse dan keyboard, atau di ponsel dengan headset VR lewat tombol Mulai di VR.</div>
   </div>
 </div>
 
@@ -1628,12 +1701,37 @@ function renderDocs(tab){const d=mission&&mission.docs;if(!d)return;const m=miss
   $('#docs').querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>renderDocs(b.dataset.t)));$('#docs-close').addEventListener('click',closeDocs);}
 function openDocs(tab){SFX.paper();if(VR.active){vrOpenDocs(tab||'permit');return;}docsFrom=game.running?'play':'brief';if(game.running)game.paused=true;closeMenu();$('#docs').classList.remove('hidden');if(document.exitPointerLock)document.exitPointerLock();renderDocs(tab||'permit');}
 function closeDocs(){if(VR.active){vrCloseDocs();return;}$('#docs').classList.add('hidden');if(docsFrom==='play'&&st&&!st.broken){game.paused=false;lockPointer();canvas.focus();}}
-function overlayOpen(){return ['#event','#brief','#pause','#debrief','#help','#refs','#menu','#docs'].some(s=>!$(s).classList.contains('hidden'));}
-function showScreen(id){['#menu','#brief','#pause','#debrief','#help','#refs'].forEach(s=>$(s).classList.toggle('hidden',s!==id));}
+function overlayOpen(){return ['#event','#brief','#pause','#debrief','#help','#refs','#menu','#docs','#welcome'].some(s=>!$(s).classList.contains('hidden'));}
+function showScreen(id){['#menu','#brief','#pause','#debrief','#help','#refs','#welcome'].forEach(s=>$(s).classList.toggle('hidden',s!==id));}
 function gradeOf(sc){return sc>=90?'A':sc>=75?'B':sc>=60?'C':'D';}
 function gradeName(g){return {A:'Kompeten',B:'Baik, perlu penajaman',C:'Cukup, ulangi latihan',D:'Belum kompeten'}[g];}
 
-function renderMenu(){const best=store.get(BEST_KEY,{});$('#mcards').innerHTML=MISSIONS.map((m,i)=>{const b=best[m.id];return '<div class="mcard"><div class="code">'+esc(m.code)+'</div><h3>'+esc(m.title)+'</h3><p>'+esc(m.desc)+'</p><div class="meta">'+esc(m.tag)+'. '+esc(m.diff)+', '+m.steps.length+' langkah.</div>'+(b?'<div class="best">Rekor: skor '+b.score+' ('+b.grade+'), waktu '+fmtTime(b.time)+(b.attempts?', '+b.attempts+' percobaan':'')+'</div>':'<div class="meta">Belum pernah diselesaikan</div>')+'<div class="row"><button class="btn primary" data-m="'+i+'">Mulai misi</button></div></div>';}).join('');
+const SECTOR={listrik:'migas',pipa:'migas',tangki:'migas',limbah:'migas',drainase:'migas',lastangki:'migas',petro:'petro',kertas:'kertas',garmen:'garmen'};
+const SECTOR_NAME={migas:'Migas',petro:'Petrokimia',kertas:'Pabrik kertas',garmen:'Pabrik garmen'};
+const ICONS={
+listrik:'<svg viewBox="0 0 140 120"><g filter="url(#f-sh)"><rect x="28" y="16" width="84" height="88" rx="12" fill="url(#g-navy)"/><rect x="28" y="16" width="84" height="14" rx="7" fill="url(#p-stripe)"/><rect x="40" y="38" width="22" height="56" rx="6" fill="#1f2937"/><rect x="45" y="44" width="12" height="30" rx="4" fill="url(#g-red)"/><circle cx="98" cy="42" r="5" fill="#22c55e"/><path d="M84 80v-9a14 14 0 0 1 28 0v9" fill="none" stroke="url(#g-gold)" stroke-width="6" stroke-linecap="round"/><rect x="76" y="80" width="44" height="30" rx="7" fill="url(#g-gold)"/><circle cx="98" cy="92" r="4" fill="#3a2a00"/><rect x="96" y="94" width="4" height="9" rx="2" fill="#3a2a00"/><path d="M70 30l-9 18h7l-5 16 14-22h-8l5-12z" fill="#ffe27a"/><rect x="34" y="34" width="24" height="4" rx="2" fill="rgba(255,255,255,.28)"/></g></svg>',
+pipa:'<svg viewBox="0 0 140 120"><g filter="url(#f-sh)"><rect x="8" y="48" width="124" height="24" rx="12" fill="url(#g-steelV)"/><rect x="30" y="42" width="8" height="36" rx="2" fill="#9ca3af"/><rect x="102" y="42" width="8" height="36" rx="2" fill="#9ca3af"/><rect x="44" y="26" width="6" height="24" fill="#6b7280"/><rect x="90" y="26" width="6" height="24" fill="#6b7280"/><circle cx="47" cy="22" r="11" fill="url(#g-red)"/><circle cx="93" cy="22" r="11" fill="url(#g-red)"/><circle cx="47" cy="22" r="3" fill="#7f1d1d"/><circle cx="93" cy="22" r="3" fill="#7f1d1d"/><circle cx="70" cy="60" r="17" fill="url(#g-glow)"/><path d="M70 46l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="#fff6c2"/><rect x="14" y="52" width="40" height="4" rx="2" fill="rgba(255,255,255,.3)"/></g></svg>',
+tangki:'<svg viewBox="0 0 140 120"><g filter="url(#f-sh)"><rect x="36" y="26" width="68" height="70" fill="url(#g-steel)"/><ellipse cx="70" cy="96" rx="34" ry="10" fill="#4b5563"/><ellipse cx="70" cy="26" rx="34" ry="10" fill="url(#g-top)"/><rect x="36" y="44" width="68" height="3" fill="rgba(0,0,0,.18)"/><rect x="36" y="70" width="68" height="3" fill="rgba(0,0,0,.18)"/><circle cx="70" cy="80" r="9" fill="#1f2937" stroke="#9ca3af" stroke-width="2"/><g transform="translate(106 34) rotate(45)"><rect x="-11" y="-11" width="22" height="22" rx="3" fill="url(#g-gold)" stroke="#1a1400" stroke-width="2"/></g><path d="M106 26l-3.5 10h7z" fill="#1a1400"/><rect x="40" y="30" width="6" height="60" rx="3" fill="rgba(255,255,255,.22)"/></g></svg>',
+limbah:'<svg viewBox="0 0 140 120"><g filter="url(#f-sh)"><rect x="26" y="86" width="22" height="16" fill="#374151"/><rect x="92" y="86" width="22" height="16" fill="#374151"/><rect x="18" y="40" width="104" height="48" rx="24" fill="url(#g-steelV)"/><path d="M26 74c20 7 68 7 88 0v-6c-20 8-68 8-88 0z" fill="#3b2a1a"/><rect x="60" y="30" width="20" height="10" fill="#6b7280"/><circle cx="70" cy="30" r="9" fill="#1f2937" stroke="#9ca3af" stroke-width="2"/><circle cx="110" cy="28" r="15" fill="url(#g-green)"/><text x="110" y="33" font-size="12" font-weight="700" fill="#052e16" text-anchor="middle" font-family="Arial, sans-serif">H2S</text><rect x="28" y="46" width="60" height="5" rx="2.5" fill="rgba(255,255,255,.28)"/></g></svg>',
+drainase:'<svg viewBox="0 0 140 120"><g filter="url(#f-sh)"><path d="M20 40l50-20 50 20-50 20z" fill="#64748b"/><path d="M20 40v36l50 20v-36z" fill="#334155"/><path d="M120 40v36l-50 20v-36z" fill="#1e293b"/><path d="M28 48l42 17v24l-42-17z" fill="#0f172a"/><path d="M112 48l-42 17v24l42-17z" fill="#0b1220"/><path d="M28 66l42 17 42-17v8l-42 17-42-17z" fill="#1f3b2d"/><g stroke="#cbd5e1" stroke-width="2" fill="none"><path d="M30 42l40 16M38 39l40 16M46 36l40 16M54 33l40 16M62 30l40 16M62 54l40-16M54 51l40-16M46 48l40-16M38 45l40-16M30 42l40-16"/></g><rect x="100" y="60" width="10" height="24" rx="2" fill="url(#g-red)"/><circle cx="105" cy="58" r="7" fill="#fca5a5"/><path d="M114 100l7-22h8l7 22z" fill="url(#g-orange)"/><rect x="112" y="98" width="20" height="4" rx="2" fill="#1f2937"/></g></svg>',
+lastangki:'<svg viewBox="0 0 140 120"><g filter="url(#f-sh)"><rect x="30" y="30" width="60" height="66" fill="url(#g-steel)"/><ellipse cx="60" cy="96" rx="30" ry="9" fill="#4b5563"/><ellipse cx="60" cy="30" rx="30" ry="9" fill="url(#g-top)"/><rect x="88" y="70" width="20" height="12" rx="3" fill="url(#g-steelV)"/><rect x="106" y="66" width="6" height="20" rx="2" fill="#9ca3af"/><path d="M118 80c-10-6-8-20 0-28 2 8 9 10 9 19 0 6-4 9-9 9z" fill="url(#g-flame)"/><path d="M118 78c-4-3-3-9 0-13 1 4 4 5 4 9 0 3-2 4-4 4z" fill="#fff3b0"/><path d="M60 48l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#ffe27a"/><rect x="34" y="34" width="6" height="56" rx="3" fill="rgba(255,255,255,.22)"/></g></svg>',
+petro:'<svg viewBox="0 0 140 120"><g filter="url(#f-sh)"><rect x="40" y="30" width="60" height="70" rx="30" fill="url(#g-steel)"/><rect x="36" y="50" width="68" height="26" rx="6" fill="url(#g-orange)"/><rect x="36" y="50" width="68" height="4" rx="2" fill="rgba(255,255,255,.35)"/><rect x="58" y="12" width="24" height="18" rx="4" fill="url(#g-navy)"/><rect x="68" y="30" width="4" height="48" fill="#9ca3af"/><rect x="52" y="72" width="36" height="5" rx="2.5" fill="#cbd5e1"/><circle cx="112" cy="36" r="9" fill="#f8fafc" stroke="#475569" stroke-width="2"/><path d="M112 36l4-5" stroke="#dc2626" stroke-width="2"/><rect x="48" y="88" width="44" height="6" rx="3" fill="#374151"/><rect x="44" y="36" width="5" height="12" rx="2.5" fill="rgba(255,255,255,.3)"/></g></svg>',
+kertas:'<svg viewBox="0 0 140 120"><g filter="url(#f-sh)"><rect x="18" y="82" width="104" height="10" rx="3" fill="#374151"/><rect x="22" y="50" width="12" height="36" fill="#475569"/><rect x="106" y="50" width="12" height="36" fill="#475569"/><rect x="26" y="56" width="88" height="26" rx="13" fill="url(#g-creamV)"/><ellipse cx="26" cy="69" rx="6" ry="13" fill="#e7d9b8"/><ellipse cx="114" cy="69" rx="6" ry="13" fill="#cdbc95"/><rect x="34" y="28" width="72" height="22" rx="11" fill="url(#g-creamV)"/><ellipse cx="34" cy="39" rx="5" ry="11" fill="#e7d9b8"/><ellipse cx="106" cy="39" rx="5" ry="11" fill="#cdbc95"/><circle cx="26" cy="69" r="2.5" fill="#1f2937"/><circle cx="114" cy="69" r="2.5" fill="#1f2937"/><rect x="40" y="60" width="50" height="4" rx="2" fill="rgba(255,255,255,.6)"/><rect x="46" y="32" width="40" height="3" rx="1.5" fill="rgba(255,255,255,.6)"/></g></svg>',
+garmen:'<svg viewBox="0 0 140 120"><g filter="url(#f-sh)"><rect x="18" y="86" width="104" height="12" rx="4" fill="url(#g-navy)"/><path d="M34 86V48c0-10 8-18 18-18h40c8 0 14 6 14 14v8h-14V44h-28v22h44v20z" fill="url(#g-teal)"/><rect x="34" y="60" width="18" height="26" rx="3" fill="#0f766e"/><rect x="86" y="44" width="6" height="34" fill="#cbd5e1"/><rect x="82" y="76" width="14" height="10" rx="2" fill="#e5e7eb"/><circle cx="118" cy="52" r="12" fill="url(#g-steelV)"/><circle cx="118" cy="52" r="4" fill="#1f2937"/><rect x="44" y="22" width="8" height="14" rx="2" fill="url(#g-red)"/><rect x="42" y="20" width="12" height="3" fill="#1f2937"/><path d="M100 16l-6 12h5l-4 11 10-15h-6l4-8z" fill="#ffe27a"/><rect x="40" y="36" width="30" height="4" rx="2" fill="rgba(255,255,255,.35)"/></g></svg>'
+};
+let USER=store.get('loto_user',null);let dashFilter='all';
+function initials(n){return String(n||'').trim().split(/\s+/).slice(0,2).map(w=>w[0]||'').join('').toUpperCase()||'?';}
+function showWelcome(){$('#w-name').value=USER?USER.name:'';$('#w-co').value=USER?USER.co:'';$('#w-err').textContent='';showScreen('#welcome');setTimeout(()=>{try{$('#w-name').focus();}catch(e){}},50);}
+function submitWelcome(){const name=$('#w-name').value.trim(),co=$('#w-co').value.trim();if(name.length<2){$('#w-err').textContent='Nama belum diisi.';return;}if(co.length<2){$('#w-err').textContent='Perusahaan atau instansi belum diisi.';return;}USER={name,co,since:Date.now()};store.set('loto_user',USER);SFX.click();renderMenu();}
+$('#w-go').addEventListener('click',submitWelcome);['#w-name','#w-co'].forEach(s=>$(s).addEventListener('keydown',e=>{if(e.key==='Enter')submitWelcome();}));
+$('#filters').addEventListener('click',e=>{const b=e.target.closest('.chip-f');if(!b)return;dashFilter=b.dataset.f;renderMenu();});
+
+function renderMenu(){if(!USER){showWelcome();return;}const best=store.get(BEST_KEY,{});const done=MISSIONS.filter(m=>best[m.id]).length;const scores=MISSIONS.map(m=>best[m.id]&&best[m.id].score).filter(x=>x!=null);const avg=scores.length?Math.round(scores.reduce((a,b)=>a+b,0)/scores.length):0;
+  $('#user-card').innerHTML='<div class="av">'+esc(initials(USER.name))+'</div><div><div class="nm">'+esc(USER.name)+'</div><div class="co">'+esc(USER.co)+' <button class="lnk" id="b-user">ubah</button></div></div><div class="stats"><div><b>'+done+'/'+MISSIONS.length+'</b><span>misi selesai</span></div><div><b>'+(scores.length?avg:'-')+'</b><span>skor rata-rata</span></div></div>';
+  $('#b-user').addEventListener('click',showWelcome);
+  $('#filters').querySelectorAll('.chip-f').forEach(b=>b.classList.toggle('on',b.dataset.f===dashFilter));
+  $('#mcards').innerHTML=MISSIONS.map((m,i)=>{const sec=SECTOR[m.id]||'migas';if(dashFilter==='migas'&&sec!=='migas')return '';if(dashFilter==='manufaktur'&&sec==='migas')return '';const b=best[m.id];
+    return '<div class="mcard s-'+sec+'"><div class="mc-top"><div class="mc-icon">'+(ICONS[m.id]||'')+'</div><div class="mc-code"><span>'+esc(m.code)+'</span><em>'+esc(SECTOR_NAME[sec])+'</em><span class="lvl">'+esc(m.diff)+'</span></div></div><h3>'+esc(m.title)+'</h3><p>'+esc(m.desc)+'</p><div class="mc-meta"><span>'+m.steps.length+' langkah</span><span>'+esc(m.tag.split(',')[0])+'</span></div>'+(b?'<div class="mc-best">Rekor: skor '+b.score+' ('+b.grade+'), waktu '+fmtTime(b.time)+(b.attempts?', '+b.attempts+' percobaan':'')+'</div>':'<div class="mc-best none">Belum pernah diselesaikan</div>')+'<button class="btn mc-go" data-m="'+i+'">Mulai misi</button></div>';}).join('');
   $('#mcards').querySelectorAll('button[data-m]').forEach(b=>b.addEventListener('click',()=>startMission(+b.dataset.m)));showScreen('#menu');}
 function startMission(i,keep){game.idx=i;mission=MISSIONS[i];if(!keep)session={attempts:1,errors:[],penalty:0};resetWorld();buildPad(mission.hole);mission.build();resolveLabels();for(const k in BG)BG[k].visible=(k===(mission.setting||'migas'));initState();closeMenu();closeDialog(true);toggleChecklist(false);$('#toasts').innerHTML='';$('#hud').classList.add('hidden');$('#event').classList.add('hidden');game.running=false;game.paused=false;
   P.x=mission.spawn.x;P.z=mission.spawn.z;P.yaw=mission.spawn.yaw;P.pitch=0;updateCamera();setHover(null);
@@ -1649,7 +1747,7 @@ function showDebrief(){if(VR.active)exitVR();SFX.fanfare();game.running=false;ga
   const errs=session.errors.length?session.errors.map(e=>'<tr><td>'+e.attempt+'</td><td>'+fmtTime(e.t)+'</td><td>'+SEVN[e.sev]+' (-'+e.pen+')</td><td>'+esc(e.title)+'<div style="font-size:12px;color:var(--muted)">Pada langkah '+(e.step+1)+'. '+esc(e.ref)+'</div></td></tr>').join(''):'<tr><td colspan="4" class="okt">Tidak ada kesalahan. Misi diselesaikan pada percobaan pertama.</td></tr>';
   const phases=[['Isolasi, LOTO, dan verifikasi',mission.steps.filter(s=>s.phase==='A').length],['Pengembalian energi',mission.steps.filter(s=>s.phase==='B').length]];
   const next=game.idx+1<MISSIONS.length;
-  $('#debrief').innerHTML='<div class="wrap"><div class="card"><div style="color:var(--muted);font-size:14px">'+esc(mission.code)+', '+esc(mission.title)+'</div><h2>Misi selesai</h2>'+
+  $('#debrief').innerHTML='<div class="wrap"><div class="card"><div style="color:var(--muted);font-size:14px">'+esc(mission.code)+', '+esc(mission.title)+'</div><h2>Misi selesai</h2>'+(USER?'<div class="peserta">Peserta: <b>'+esc(USER.name)+'</b>, '+esc(USER.co)+'</div>':'')+
   '<div class="sum"><div><div class="big">'+sc+'</div><div class="l">skor akhir</div></div><div><span class="grade g-'+grade+'">'+grade+'</span><div class="l">'+gradeName(grade)+'</div></div><div><div class="big" style="font-size:40px">'+fmtTime(st.time)+'</div><div class="l">waktu percobaan terakhir</div></div><div><div class="big" style="font-size:40px">'+session.attempts+'</div><div class="l">percobaan</div></div><div><div class="big" style="font-size:40px">'+session.errors.length+'</div><div class="l">kesalahan</div></div></div>'+
   '<div class="two"><div><h4>Catatan kesalahan seluruh percobaan</h4><table class="dl"><tr><th>Percobaan</th><th>Waktu</th><th>Jenis</th><th>Kejadian</th></tr>'+errs+'</table></div><div><h4>Ringkasan prosedur</h4><table class="dl"><tr><th>Fase</th><th>Langkah</th></tr>'+phases.map(p=>'<tr><td>'+p[0]+'</td><td>'+p[1]+' langkah selesai</td></tr>').join('')+'</table><h4>Pelajaran misi ini</h4><ul>'+mission.lessons.map(l=>'<li>'+esc(l)+'</li>').join('')+'</ul></div></div>'+
   '<div class="row"><button class="btn primary" id="d-retry">Ulangi misi</button>'+(next?'<button class="btn" id="d-next">Misi berikutnya</button>':'')+'<button class="btn" id="d-menu">Menu utama</button></div></div></div>';
@@ -1833,7 +1931,7 @@ canvas.addEventListener('touchend',e=>{if(!VR.active)return;e.preventDefault();V
 canvas.addEventListener('touchcancel',()=>{VR.hold=false;});
 
 // ===================== loop =====================
-buildStatic();renderMenu();
+buildStatic();if(USER)renderMenu();else showWelcome();
 let last=performance.now(),hudT=0;
 function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;
   if(game.running&&!game.paused&&st){movePlayer(dt);mission.sim(dt,st);st.time+=dt;
