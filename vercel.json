@@ -1,0 +1,5 @@
+{
+  "headers": [
+    { "source": "/(.*)", "headers": [ { "key": "Permissions-Policy", "value": "xr-spatial-tracking=(self), gyroscope=(self), accelerometer=(self), fullscreen=(self)" } ] }
+  ]
+}
