@@ -465,6 +465,7 @@ table.rec tr.me td{background:rgba(245,196,0,.10)}
 #dialog.voplay .who .vow i{opacity:1;animation:voBar .9s ease-in-out infinite}
 #dialog.voplay .who .vow i:nth-child(2){animation-delay:.15s}#dialog.voplay .who .vow i:nth-child(3){animation-delay:.3s}
 @keyframes voBar{0%,100%{height:4px}50%{height:13px}}
+#pause .ib-row.novr{grid-template-columns:repeat(4,minmax(0,1fr))}@media(max-width:560px){#pause .ib-row.novr{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -554,7 +555,7 @@ table.rec tr.me td{background:rgba(245,196,0,.10)}
       <div class="ib-row dash-ib"><button class="ib sm" id="b-help" title="Instruksi permainan"><span class="ib-ico" data-ico="help"></span><span class="ib-l">Instruksi permainan</span></button><button class="ib sm" id="b-reset" title="Hapus rekor"><span class="ib-ico" data-ico="trash"></span><span class="ib-l">Hapus rekor</span></button><button class="ib sm" id="b-refs" title="Referensi"><span class="ib-ico" data-ico="book"></span><span class="ib-l">Referensi</span></button><button class="ib sm" id="b-title" title="Beranda"><span class="ib-ico" data-ico="home"></span><span class="ib-l">Beranda</span></button></div>
     </div>
     <div id="mcards" class="dash-grid"></div>
-    <div class="dash-foot">LOTO Simulator v3.4. Urutan misi mengikuti tahapan pengendalian energi OSHA 29 CFR 1910.147 dan ANSI/ASSP Z244.1, dengan konteks regulasi nasional. Simulasi ini alat bantu pelatihan, bukan pengganti prosedur LOTO dan sistem izin kerja spesifik tiap fasilitas. Dimainkan di komputer dengan mouse dan keyboard, atau di ponsel dengan headset VR lewat tombol Mulai di VR.</div>
+    <div class="dash-foot">LOTO Simulator v3.4.1. Urutan misi mengikuti tahapan pengendalian energi OSHA 29 CFR 1910.147 dan ANSI/ASSP Z244.1, dengan konteks regulasi nasional. Simulasi ini alat bantu pelatihan, bukan pengganti prosedur LOTO dan sistem izin kerja spesifik tiap fasilitas. Dimainkan di komputer dengan mouse dan keyboard, atau di ponsel dengan headset VR lewat tombol Mulai di VR.</div>
   </div>
 </div>
 
@@ -650,7 +651,7 @@ table.rec tr.me td{background:rgba(245,196,0,.10)}
       <img class="tlogo" data-logo="loto" alt="LOTO Simulator" width="720" height="651">
       <h1 class="sr">LOTO Simulator</h1>
       <div class="tsub">Simulasi orang pertama pengendalian energi berbahaya di fasilitas migas dan manufaktur</div>
-      <div class="tfoot"><span id="t-user"></span><span class="tby"><span class="nlogo sm"><img data-logo="nusa" alt="Nusa Safety"></span><span>LOTO Simulator v3.4<br>dikembangkan oleh PT Nusa Rendra Jayatama</span></span><span class="tkeys">Panah atas dan bawah untuk memilih, Enter untuk membuka</span></div>
+      <div class="tfoot"><span id="t-user"></span><span class="tby"><span class="nlogo sm"><img data-logo="nusa" alt="Nusa Safety"></span><span>LOTO Simulator v3.4.1<br>dikembangkan oleh PT Nusa Rendra Jayatama</span></span><span class="tkeys">Panah atas dan bawah untuk memilih, Enter untuk membuka</span></div>
     </div>
     <nav class="tmenu" id="tmenu">
       <button class="tbtn primary" id="t-new"><b>Permainan baru</b><span>Peserta baru, mulai dari Misi 01</span></button>
@@ -782,7 +783,6 @@ next:'<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="url(#igGs)"/
 function ibTile(id,ico,label,cls){return '<button class="ib'+(cls?' '+cls:'')+'" id="'+id+'" title="'+label+'"><span class="ib-ico">'+ICO[ico]+'</span><span class="ib-l">'+label+'</span></button>';}
 function ibMain(id,ico,label,sub){return '<button class="ib-main" id="'+id+'"><span class="ib-ico">'+ICO[ico]+'</span><span class="ib-t">'+label+(sub?'<small>'+sub+'</small>':'')+'</span></button>';}
 try{document.body.insertAdjacentHTML('afterbegin',ICO_DEFS);document.querySelectorAll('[data-ico]').forEach(e=>{e.innerHTML=ICO[e.dataset.ico]||'';});}catch(e){}
-function setMuteBtn(){const b=$('#p-mute');if(!b)return;b.querySelector('.ib-ico').innerHTML=ICO[AUD.mute?'mute':'sound'];b.querySelector('.ib-l').textContent=AUD.mute?'Suara mati':'Suara aktif';b.title=b.querySelector('.ib-l').textContent;}
 
 (function(){
 'use strict';
@@ -2345,8 +2345,9 @@ function startMission(i,keep){if(!NPC_READY){NPC_PENDING.push(()=>startMission(i
   $('#brief').innerHTML='<div class="wrap"><div class="card brief-card s-'+sec+'"><div class="brief-head"><div class="mc-icon">'+(ICONS[mission.id]||'')+'</div><div><div class="brief-code">'+esc(mission.code)+'<span class="brief-sector">'+esc(SECTOR_NAME[sec])+', '+esc(mission.diff)+', '+mission.steps.length+' langkah</span></div><h2>'+esc(mission.title)+'</h2></div></div><div class="two"><div><p>'+esc(mission.desc)+'</p><h4>Tujuan</h4><p>Amankan sistem mengikuti urutan pengendalian energi, verifikasi energi nol dengan instrumen, serah terima ke tim, lalu kembalikan energi dengan aman. Setiap kesalahan prosedur dikenai penalti, dan percobaan berikutnya dilanjutkan dari checkpoint terakhir. Daftar prosedur tersedia lewat tombol Tab, dokumen lewat tombol F, dan petunjuk tiap instalasi muncul saat dibidik.</p>'+(USER?'<div class="peserta">Peserta: <b>'+esc(USER.name)+'</b>, '+esc(USER.co)+'</div>':'')+'<div class="act-bar">'+ibMain('b-start','play','Mulai misi','Masuk ke lokasi kerja')+'<div class="ib-row">'+ibTile('b-vr','vr','Mulai di VR')+ibTile('b-docs','doc','Dokumen')+ibTile('b-back','grid','Daftar misi')+'</div></div></div><div class="side"><h4>Sumber energi yang harus dikendalikan</h4><ul>'+mission.energy.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul><h4>Personel yang terlibat</h4><ul>'+Object.values(defs).filter(d=>d.type==='npc').map(d=>'<li>'+esc(d.label)+(d.sub?', '+esc(d.sub):'')+'</li>').join('')+'</ul><h4>Dokumen yang dipersyaratkan</h4><ul><li>Izin kerja: '+esc(mission.docs.permit.jenis)+'</li><li>Job safety analysis (JSA)</li><li>P&amp;ID area kerja</li>'+mission.docs.others.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul><h4>Rujukan misi</h4><ul>'+mission.refs.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div></div></div></div>';
   showScreen('#brief');setTimeout(()=>{try{if(mission&&!game.running)renderer.compile(scene,camera);}catch(e){}},80);$('#b-docs').addEventListener('click',()=>openDocs('permit'));$('#b-start').addEventListener('click',()=>beginPlay(false));$('#b-vr').addEventListener('click',()=>{beginPlay(true);enterVR();});$('#b-back').addEventListener('click',renderMenu);}
 function beginPlay(silent){audioStart();if(!silent)setTimeout(()=>sndPlay('open',{vol:.7}),300);showScreen(null);$('#hud').classList.remove('hidden');game.running=true;game.paused=false;updateHUD();if(!silent){toast('Misi dimulai. Baca papan izin kerja di depan Anda.','info');toast('Bidik instalasi mana pun untuk membaca petunjuknya. Tombol F membuka izin kerja, JSA, dan P&ID.','info');}lockPointer();canvas.focus();}
-function pauseGame(){if(!game.running||game.paused)return;game.paused=true;closeMenu();setMuteBtn();showScreen('#pause');}
-function resumeGame(){showScreen(null);game.paused=false;lockPointer();canvas.focus();}
+function setMuteBtn(){const b=$('#p-mute');if(!b)return;b.querySelector('.ib-ico').innerHTML=ICO[AUD.mute?'mute':'sound'];b.querySelector('.ib-l').textContent=AUD.mute?'Suara mati':'Suara aktif';b.title=b.querySelector('.ib-l').textContent;}
+function pauseGame(){if(!game.running||game.paused)return;game.paused=true;showScreen('#pause');try{closeMenu();for(const k in keys)keys[k]=false;sndLoop('walk',false);sndLoop('run',false);setMuteBtn();const vb=$('#p-vr');if(vb){vb.classList.toggle('hidden',!VR.used);vb.parentNode.classList.toggle('novr',!VR.used);}}catch(e){console.warn('pauseGame',e);}}
+function resumeGame(){showScreen(null);if(dlg||PICK)return;game.paused=false;lockPointer();canvas.focus();}
 function backToMenu(){game.suspended=false;if(VR.active)exitVR();sndLoop('bgm',false,0,.4);sndLoop('walk',false);sndLoop('run',false);game.running=false;game.paused=false;closeDialog(true);if(document.exitPointerLock)document.exitPointerLock();$('#hud').classList.add('hidden');$('#event').classList.add('hidden');renderMenu();}
 function showDebrief(){if(VR.active)exitVR();sndLoop('bgm',false,0,.6);if(!sndPlay('ending',{vol:.9}))SFX.fanfare();game.running=false;game.paused=false;if(document.exitPointerLock)document.exitPointerLock();$('#hud').classList.add('hidden');closeMenu();closeDialog(true);
   const sc=score(),grade=gradeOf(sc);const best=store.get(BEST_KEY,{});const b=best[mission.id];if(!b||sc>b.score||(sc===b.score&&st.time<b.time)){best[mission.id]={score:sc,grade,time:Math.floor(st.time),attempts:session.attempts};store.set(BEST_KEY,best);}store.set(PROG_KEY,{last:game.idx});boardAdd({n:USER?USER.name:'Tanpa nama',c:USER?USER.co:'-',m:mission.id,s:sc,g:grade,t:Math.floor(st.time),a:session.attempts,d:Date.now()});
@@ -2369,7 +2370,7 @@ const P={x:0,z:0,yaw:0,pitch:0};const keys={};
 let plActive=false,dragging=false,plFailed=false;
 function lockPointer(){if(VR.active&&(VR.hasOrient||VR.xr))return;if(!canvas.requestPointerLock){plFailed=true;$('#fallback').classList.remove('hidden');return;}try{const p=canvas.requestPointerLock();if(p&&p.catch)p.catch(()=>{});}catch(e){}}
 document.addEventListener('pointerlockchange',()=>{plActive=document.pointerLockElement===canvas;if(plActive){plFailed=false;$('#fallback').classList.add('hidden');}else if(game.running&&!game.paused&&!overlayOpen()&&!plFailed)pauseGame();});
-document.addEventListener('pointerlockerror',()=>{plActive=false;plFailed=true;$('#fallback').classList.remove('hidden');});
+let plRetryT=0;document.addEventListener('pointerlockerror',()=>{plActive=false;plFailed=true;$('#fallback').classList.remove('hidden');const t=performance.now();if(game.running&&!game.paused&&t-plRetryT>3000){plRetryT=t;setTimeout(()=>{if(game.running&&!game.paused&&!plActive)lockPointer();},1100);}});
 canvas.addEventListener('mousedown',e=>{audioResume();if(VR.active&&(VR.hasOrient||VR.xr)){VR.tap=true;VR.hold=true;return;}if(!game.running||game.paused)return;if(!plActive){dragging=true;lockPointer();}});
 window.addEventListener('mouseup',()=>{dragging=false;VR.hold=false;});
 window.addEventListener('mousemove',e=>{if(!game.running||game.paused||menuOpen)return;if(plActive||dragging){P.yaw-=e.movementX*0.0022*CFG.sens;P.pitch=clamp(P.pitch-e.movementY*0.0022*CFG.sens,-1.45,1.45);}});
@@ -2520,7 +2521,7 @@ function vrUpdate(dt){if(!st)return;
   const showClue=!!(VR.target&&VR.target.kind==='obj')&&!VR.menuId&&!VR.docsOpen&&!dlg&&!broken;Q.clue.mesh.visible=showClue;if(showClue&&VR.clueId!==VR.target.id){VR.clueId=VR.target.id;vrRenderClue(VR.target.id);}if(!showClue)VR.clueId=null;
   const t=VR.toasts.length?VR.toasts[VR.toasts.length-1]:null;const showT=!!(t&&performance.now()-t.at<5000);Q.toast.mesh.visible=showT&&!broken;if(showT&&VR.toastKey!==t.at){VR.toastKey=t.at;vrRenderToast(t);}
   if(VR.fade>0){VR.fade=Math.max(0,VR.fade-dt*2.6);vrFade.visible=true;vrFade.material.opacity=Math.min(1,VR.fade*1.4);}else vrFade.visible=false;}
-async function enterVR(){if(VR.active)return;vrInitPanels();vrCursor.visible=true;
+async function enterVR(){if(VR.active)return;VR.used=true;vrInitPanels();vrCursor.visible=true;
   const el=document.documentElement;try{if(el.requestFullscreen)el.requestFullscreen().catch(()=>{});}catch(e){}
   let xrp=null;if(navigator.xr&&navigator.xr.isSessionSupported){xrp=navigator.xr.isSessionSupported('immersive-vr').then(ok=>ok?navigator.xr.requestSession('immersive-vr',{optionalFeatures:['local-floor']}):null).catch(()=>null);}
   try{if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function')await DeviceOrientationEvent.requestPermission();}catch(e){}
